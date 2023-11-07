@@ -47,7 +47,7 @@ mkdir EpigeneticDrift
 cd EpigeneticDrift
 Clone the git repo
 
-git clone https://github.com/Fun-Gene/EpigeneticDrift
+git clone https://github.com/Fun-Gene/EpigeneticDrift.git
 Create conda environment with all necessary tools installed by:
 
 conda env create -f EpigeneticDrift/envs/evmake.yaml
