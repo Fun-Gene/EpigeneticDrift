@@ -5,7 +5,7 @@ DNA methylation; Epigenetic Drift; Aging
 
 # A robust epigenetic drift score associated with aging dimensions
 
-### Xiu Fan Qili Qian Yuan Cheng
+### Xiu Fan, Qili Qian, Yuan Cheng
 
 
 # Introduction
