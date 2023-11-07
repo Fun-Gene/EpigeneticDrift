@@ -1,0 +1,271 @@
+ONTOLOGY,TERM,N,DE,P.DE,FDR
+BP,regulation of heterotypic cell-cell adhesion,26,4,5.39983730160189e-05,1
+BP,regulation of leukocyte cell-cell adhesion,328,9,0.000255489464042054,1
+BP,regulation of cell-cell adhesion,438,11,0.000345712568092537,1
+BP,regulation of T cell activation,331,9,0.000362977300996037,1
+BP,T cell activation,482,11,0.000405272869410917,1
+BP,T cell differentiation,253,8,0.000452631041646784,1
+BP,leukocyte cell-cell adhesion,363,9,0.000515345341199699,1
+BP,regulation of lymphocyte activation,440,10,0.000598235627223053,1
+BP,positive regulation of T cell activation,213,7,0.000673311033315337,1
+BP,positive regulation of cell adhesion,426,11,0.00067962453553558,1
+BP,lymphocyte differentiation,367,9,0.000846983828848144,1
+BP,response to leukemia inhibitory factor,97,5,0.000882567714671949,1
+BP,cellular response to leukemia inhibitory factor,97,5,0.000882567714671949,1
+BP,positive regulation of cell-cell adhesion,278,8,0.000949252367157515,1
+BP,positive regulation of leukocyte cell-cell adhesion,234,7,0.0011345711730652,1
+BP,muscle organ development,405,10,0.00129549783218145,1
+BP,heterotypic cell-cell adhesion,62,4,0.00136378880682862,1
+BP,alpha-beta T cell differentiation,106,5,0.00146222971814628,1
+BP,lymphocyte activation,687,12,0.00185660121739796,1
+BP,negative regulation of telomere capping,8,2,0.00193664447471233,1
+BP,regulation of leukocyte activation,528,10,0.00207863805058966,1
+BP,regulation of cell adhesion,734,14,0.00267600144903997,1
+BP,dCTP catabolic process,1,1,0.00287222205980842,1
+BP,dCTP metabolic process,1,1,0.00287222205980842,1
+BP,negative regulation of heterotypic cell-cell adhesion,11,2,0.00293088109237065,1
+BP,regulation of cell-cell adhesion involved in gastrulation,11,2,0.00293088109237065,1
+BP,peptidyl-serine autophosphorylation,8,2,0.00304289715152776,1
+BP,positive regulation of lymphocyte activation,282,7,0.00311011913357507,1
+BP,cell-cell adhesion involved in gastrulation,12,2,0.00322953181720459,1
+BP,alpha-beta T cell activation,145,5,0.00386114194990942,1
+BP,CD4-positive, alpha-beta T cell activation,97,4,0.00414863586987912,1
+BP,regulation of cell activation,573,10,0.00422223437746275,1
+BP,positive regulation of T cell differentiation,92,4,0.00443076480268658,1
+BP,negative regulation of transforming growth factor beta receptor signaling pathway,87,4,0.00461351754975892,1
+BP,regulation of T cell differentiation,150,5,0.00477615974221296,1
+BP,seryl-tRNA aminoacylation,2,1,0.00490955486381346,1
+BP,lymphocyte proliferation,282,6,0.00505677987469921,1
+BP,mononuclear cell proliferation,285,6,0.00522637431919538,1
+BP,negative regulation of cellular response to transforming growth factor beta stimulus,89,4,0.00529372825273733,1
+BP,positive regulation of leukocyte activation,329,7,0.00577468175291598,1
+BP,thymus development,46,3,0.00652919927574737,1
+BP,T cell costimulation,55,3,0.00659969573929062,1
+BP,lymphocyte costimulation,57,3,0.00684594520317709,1
+BP,adipose tissue development,44,3,0.00694564446030449,1
+BP,negative regulation of I-kappaB kinase/NF-kappaB signaling,53,3,0.00697054511615628,1
+BP,positive regulation of cell activation,344,7,0.00708323962537446,1
+BP,post-embryonic development,86,4,0.00712783707802625,1
+BP,positive regulation of heterotypic cell-cell adhesion,16,2,0.00730414976623992,1
+BP,positive regulation of lymphocyte differentiation,104,4,0.00741937463048292,1
+BP,V(D)J recombination,15,2,0.00769590528010178,1
+BP,hematopoietic or lymphoid organ development,961,14,0.00771263268658842,1
+BP,cell activation,1402,17,0.00808368493035194,1
+BP,leukocyte proliferation,312,6,0.00852355111433788,1
+BP,eukaryotic translation initiation factor 2 complex assembly,1,1,0.00861678655949224,1
+BP,phosphatidylinositol-3-phosphate biosynthetic process,14,2,0.00869519636036669,1
+BP,I-kappaB kinase/NF-kappaB signaling,286,6,0.00876994127028492,1
+BP,negative regulation of striated muscle tissue development,61,3,0.00892530305370903,1
+BP,regulation of lymphocyte differentiation,180,5,0.00895212817111212,1
+BP,selenocysteinyl-tRNA(Sec) biosynthetic process,4,1,0.00917495506529747,1
+BP,negative regulation of muscle organ development,62,3,0.00964510896585894,1
+BP,positive regulation of autophagy in response to ER overload,1,1,0.00971128184852384,1
+BP,regulation of toll-like receptor signaling pathway,72,3,0.0100611842054211,1
+BP,leukocyte activation,1241,15,0.0101858927756617,1
+BP,pyrimidine nucleoside triphosphate catabolic process,3,1,0.0103192086851329,1
+BP,pyrimidine deoxyribonucleoside triphosphate catabolic process,3,1,0.0103192086851329,1
+BP,negative regulation of muscle tissue development,64,3,0.0110774702096848,1
+BP,immune system development,1016,14,0.0114220517577713,1
+BP,leukocyte differentiation,537,9,0.0122267381639128,1
+BP,toll-like receptor signaling pathway,150,4,0.0125525782330922,1
+BP,negative regulation of 3'-UTR-mediated mRNA stabilization,1,1,0.0134624878687632,1
+BP,negative regulation of cardiac muscle cell proliferation,23,2,0.0136550701763891,1
+BP,regulation of tolerance induction to self antigen,1,1,0.0138814646629198,1
+BP,positive regulation of tolerance induction to self antigen,1,1,0.0138814646629198,1
+BP,inferior endocardial cushion morphogenesis,1,1,0.0138814646629198,1
+BP,T cell receptor signaling pathway,197,5,0.0140694608890622,1
+BP,regulation of cellular response to gamma radiation,1,1,0.0143794669080924,1
+BP,tarsal gland development,1,1,0.0151489401449408,1
+BP,uterine gland development,1,1,0.0151489401449408,1
+BP,zinc ion homeostasis,39,2,0.0153282232824664,1
+BP,leukocyte homeostasis,86,3,0.0156521140776133,1
+BP,positive regulation of apoptotic process by virus,2,1,0.0157535092303631,1
+BP,B cell proliferation,97,3,0.0157847360686215,1
+BP,regulation of B cell tolerance induction,2,1,0.0159648867506726,1
+BP,positive regulation of B cell tolerance induction,2,1,0.0159648867506726,1
+BP,trachea development,19,2,0.0162660792040814,1
+BP,snRNA (adenine-N6)-methylation,2,1,0.0163852248475385,1
+BP,pre-B cell allelic exclusion,3,1,0.0167937296276672,1
+BP,signal transduction involved in mitotic G2 DNA damage checkpoint,3,1,0.0169623332015493,1
+BP,autocrine signaling,8,1,0.0170560814335467,1
+BP,regulation of estrogen receptor binding,3,1,0.0172331915764786,1
+BP,negative regulation of estrogen receptor binding,3,1,0.0172331915764786,1
+BP,negative regulation of dendritic cell antigen processing and presentation,4,1,0.0174103340049108,1
+BP,regulation of transforming growth factor beta receptor signaling pathway,127,4,0.0175038695477314,1
+BP,lymphocyte migration into lymph node,2,1,0.0175108615376739,1
+BP,CD4-positive, alpha-beta T cell differentiation,78,3,0.0177705855179989,1
+BP,selenocysteine metabolic process,4,1,0.0179505572465786,1
+BP,zinc ion import into organelle,2,1,0.0182576400286431,1
+BP,zinc ion import into synaptic vesicle,2,1,0.0182576400286431,1
+BP,corticosterone secretion,5,1,0.0189589565213772,1
+BP,regulation of cellular response to transforming growth factor beta stimulus,129,4,0.0190996365259249,1
+BP,primary adaptive immune response,1,1,0.0191276937162079,1
+BP,primary adaptive immune response involving T cells and B cells,1,1,0.0191276937162079,1
+BP,negative regulation of transmembrane receptor protein serine/threonine kinase signaling pathway,133,4,0.0194009379679708,1
+BP,negative regulation of immune system process,460,7,0.0197039969432041,1
+BP,regulation of telomere capping,26,2,0.0200570630300724,1
+BP,meiosis I,118,3,0.0201659412515196,1
+BP,regulation of T cell differentiation in thymus,27,2,0.020355887227316,1
+BP,telomerase catalytic core complex assembly,2,1,0.020596257487799,1
+BP,regulation of telomerase catalytic core complex assembly,2,1,0.020596257487799,1
+BP,positive regulation of telomerase catalytic core complex assembly,2,1,0.020596257487799,1
+BP,trachea submucosa development,2,1,0.0206424103999203,1
+BP,trachea gland development,2,1,0.0206424103999203,1
+BP,positive regulation by symbiont of host programmed cell death,3,1,0.0207582396668109,1
+BP,positive regulation by symbiont of host apoptotic process,3,1,0.0207582396668109,1
+BP,positive regulation by organism of programmed cell death in other organism involved in symbiotic interaction,3,1,0.0207582396668109,1
+BP,cell-cell adhesion,881,13,0.0207855372914644,1
+BP,negative regulation of neutrophil apoptotic process,2,1,0.0209211523619337,1
+BP,miRNA transport,3,1,0.0210789129724544,1
+BP,muscle structure development,678,11,0.0211083478786261,1
+BP,immune system process,2967,27,0.0215153351081412,1
+BP,bronchus morphogenesis,2,1,0.0216323664700432,1
+BP,lens fiber cell apoptotic process,4,1,0.0218815049849186,1
+BP,regulation of DNA damage response, signal transduction by p53 class mediator,34,2,0.0219061544493322,1
+BP,killing by symbiont of host cells,4,1,0.021943223580142,1
+BP,positive regulation of Ras protein signal transduction,69,3,0.0221296892891415,1
+BP,meiosis I cell cycle process,123,3,0.0222606404948835,1
+BP,T cell differentiation in thymus,76,3,0.0222981191133513,1
+BP,peptidyl-threonine phosphorylation,117,4,0.0224103561262031,1
+BP,retrograde transport, plasma membrane to Golgi,2,1,0.022638222066515,1
+BP,regulation of immune system process,1512,16,0.0226718678551243,1
+BP,apoptotic process involved in morphogenesis,26,2,0.0233815659711888,1
+BP,regulation of I-kappaB kinase/NF-kappaB signaling,252,5,0.0234420244686666,1
+BP,protein initiator methionine removal,3,1,0.0234985772508666,1
+BP,regulation of chaperone-mediated protein folding,5,1,0.0236129368280839,1
+BP,establishment of RNA localization to telomere,3,1,0.0246096733109158,1
+BP,establishment of protein-containing complex localization to telomere,3,1,0.0246096733109158,1
+BP,leukocyte apoptotic process,107,3,0.0246184781319327,1
+BP,regulation of pattern recognition receptor signaling pathway,97,3,0.0247281941649911,1
+BP,S-adenosylmethionine biosynthetic process,4,1,0.0249684988610193,1
+BP,spermine catabolic process,2,1,0.0250692013163216,1
+BP,positive regulation of nitrogen compound metabolic process,3174,32,0.0252077211501165,1
+BP,chemokine (C-C motif) ligand 21 signaling pathway,4,1,0.0252115390727973,1
+BP,T cell apoptotic process,49,2,0.0253122443691273,1
+BP,negative regulation of toll-like receptor signaling pathway,43,2,0.02554314981057,1
+BP,secondary palate development,24,2,0.0258038113881634,1
+BP,response to selenium ion,10,1,0.0260023255592474,1
+BP,negative regulation of telomere maintenance,36,2,0.0260476945569622,1
+BP,spleen development,34,2,0.026378681937693,1
+BP,positive regulation of response to interferon-gamma,6,1,0.0263939096435098,1
+BP,positive regulation of interferon-gamma-mediated signaling pathway,6,1,0.0263939096435098,1
+BP,negative regulation of cardiac muscle tissue growth,34,2,0.0267555122581832,1
+BP,negative regulation of heart growth,34,2,0.0267555122581832,1
+BP,establishment of RNA localization,200,4,0.026902137598991,1
+BP,positive regulation of leukocyte differentiation,158,4,0.0272767528720499,1
+BP,response to sterol,35,2,0.027652418964808,1
+BP,hemopoiesis,920,12,0.0278557506120812,1
+BP,membrane protein proteolysis involved in retrograde protein transport, ER to cytosol,2,1,0.0279559371918049,1
+BP,polyamine catabolic process,4,1,0.0281101802170175,1
+BP,pre-B cell differentiation,5,1,0.0283964745196018,1
+BP,negative regulation of protein-containing complex assembly,141,4,0.0286949839814925,1
+BP,positive regulation of small GTPase mediated signal transduction,76,3,0.0288873825843773,1
+BP,DNA protection,5,1,0.0289920314461271,1
+BP,immune response,1995,18,0.0290097157882511,1
+BP,growth plate cartilage chondrocyte growth,3,1,0.0291234463011819,1
+BP,apoptotic process involved in embryonic digit morphogenesis,3,1,0.0293260249796899,1
+BP,peptidyl-threonine modification,126,4,0.0293882926007117,1
+BP,negative regulation of leukocyte apoptotic process,48,2,0.0296541505662601,1
+BP,negative regulation of cell-cell adhesion mediated by integrin,2,1,0.0296715815692979,1
+BP,negative regulation of cellular process,5077,45,0.0298999297605572,1
+BP,B cell tolerance induction,3,1,0.0299872422884414,1
+BP,NADP biosynthetic process,3,1,0.030334997823823,1
+BP,regulation of response to gamma radiation,2,1,0.0308693689657445,1
+BP,positive regulation of DNA catabolic process,6,1,0.0308840577177797,1
+BP,negative regulation of interleukin-13 production,6,1,0.0309586283332888,1
+BP,snRNA modification,7,1,0.0310953274069377,1
+BP,reciprocal meiotic recombination,54,2,0.031447402754629,1
+BP,regulation of striated muscle tissue development,153,4,0.0320220118464742,1
+BP,positive regulation of cell motility,589,9,0.0320294817820289,1
+BP,regulation of nitrogen compound metabolic process,5894,48,0.0320757155821544,1
+BP,homologous recombination,55,2,0.032490172369324,1
+BP,skeletal muscle tissue development,157,4,0.0326825343664589,1
+BP,branching involved in blood vessel morphogenesis,36,2,0.0329525173387195,1
+BP,positive regulation of ARF protein signal transduction,2,1,0.0331137924726125,1
+BP,lipoprotein metabolic process,134,3,0.0331167592505154,1
+BP,pyrimidine deoxyribonucleoside triphosphate metabolic process,7,1,0.0332292275811282,1
+BP,antigen receptor-mediated signaling pathway,245,5,0.0335161505335055,1
+BP,negative regulation of protein polymerization,79,3,0.0336766549011073,1
+BP,actin modification,4,1,0.0336903405845185,1
+BP,deoxyribonucleoside triphosphate catabolic process,9,1,0.0337015975989468,1
+BP,regulation of muscle organ development,157,4,0.0338165760210815,1
+BP,histone H3-K36 dimethylation,4,1,0.0343733859188579,1
+BP,negative regulation of interleukin-5 production,7,1,0.0346837693162276,1
+BP,regulation of muscle tissue development,156,4,0.034839369471337,1
+BP,pattern recognition receptor signaling pathway,199,4,0.0348466649099789,1
+BP,positive regulation of T cell tolerance induction,6,1,0.03491930219419,1
+BP,mast cell degranulation,46,2,0.0350672622386249,1
+BP,negative regulation of vascular endothelial growth factor production,31,1,0.0357228766341592,1
+BP,mast cell activation involved in immune response,47,2,0.0360312592735163,1
+BP,formation of radial glial scaffolds,4,1,0.0360410774067382,1
+BP,multicellular organism growth,150,4,0.0360635896594702,1
+BP,negative regulation of protein binding,106,3,0.036327641609479,1
+BP,positive regulation of locomotion,603,9,0.036645464414652,1
+BP,cellular response to cytokine stimulus,1120,12,0.0367516999833559,1
+BP,telomere capping,53,2,0.0374105061410039,1
+BP,protein localization to microtubule plus-end,5,1,0.0375592790077401,1
+BP,protein localization to microtubule end,5,1,0.0375592790077401,1
+BP,positive regulation of MHC class I biosynthetic process,5,1,0.0376732814534312,1
+BP,mast cell mediated immunity,48,2,0.0379396282292416,1
+BP,rRNA base methylation,10,1,0.0383494503489346,1
+BP,face morphogenesis,30,2,0.0386925655619335,1
+BP,striated muscle tissue development,388,7,0.0389595605034685,1
+BP,positive regulation of CD4-positive, alpha-beta T cell proliferation,5,1,0.0390235373280454,1
+BP,negative regulation of cardiac muscle tissue development,45,2,0.0394013518984651,1
+BP,vitamin A metabolic process,8,1,0.0395160489969685,1
+BP,positive regulation of cellular component movement,607,9,0.0397851269959106,1
+BP,common myeloid progenitor cell proliferation,7,1,0.0399955338139518,1
+BP,signal transduction by trans-phosphorylation,3,1,0.0402357995630626,1
+BP,beta-catenin-TCF complex assembly,30,2,0.0403059762582446,1
+BP,MHC class I biosynthetic process,7,1,0.0403098698088823,1
+BP,regulation of MHC class I biosynthetic process,7,1,0.0403098698088823,1
+BP,lymphocyte migration into lymphoid organs,6,1,0.0405585377213624,1
+BP,dsRNA transport,3,1,0.0406884319415027,1
+BP,cellular response to nitrosative stress,6,1,0.0411042920414936,1
+BP,modulation by virus of host apoptotic process,4,1,0.0412370655270776,1
+BP,histone H3-K4 demethylation, trimethyl-H3-K4-specific,5,1,0.0412913404319601,1
+BP,negative regulation of antigen processing and presentation,9,1,0.0413023401949402,1
+BP,apoptotic process involved in blood vessel morphogenesis,5,1,0.0413635443265965,1
+BP,positive regulation of metalloendopeptidase activity,9,1,0.0413965288216502,1
+BP,histone H3-K23 acetylation,5,1,0.0415100820853643,1
+BP,regulation of cellular protein metabolic process,2738,26,0.0415715573842147,1
+BP,positive regulation of skeletal muscle tissue regeneration,5,1,0.0416233951924832,1
+BP,RNA localization,233,4,0.0417247671808873,1
+BP,negative regulation of T cell mediated cytotoxicity,7,1,0.0418129567135113,1
+BP,negative regulation of immature T cell proliferation in thymus,4,1,0.0419869861591736,1
+BP,positive regulation of histone phosphorylation,8,1,0.0421895346059806,1
+BP,spermine metabolic process,5,1,0.0423858032420141,1
+BP,negative regulation of immature T cell proliferation,5,1,0.0431430068066635,1
+BP,chondrocyte hypertrophy,5,1,0.0434600740069974,1
+BP,skeletal muscle organ development,166,4,0.0435229206772169,1
+BP,positive regulation of tolerance induction,9,1,0.0435894675502676,1
+BP,negative regulation of apoptotic process in bone marrow cell,6,1,0.0438239338066993,1
+BP,inflammatory response to antigenic stimulus,64,2,0.0439509259710276,1
+BP,telomerase holoenzyme complex assembly,6,1,0.044019356728742,1
+BP,regulation of cellular metabolic process,6297,50,0.0442056842415562,1
+BP,glucocorticoid secretion,10,1,0.0445825003067782,1
+BP,regulation of apoptotic process in bone marrow cell,7,1,0.0448212454078475,1
+BP,regulation of skeletal muscle tissue regeneration,8,1,0.0453090523163895,1
+BP,regulation of protein metabolic process,2875,27,0.0454436329955259,1
+BP,early endosome to recycling endosome transport,4,1,0.0458608910452356,1
+BP,regulation of hemopoiesis,492,7,0.045982822520798,1
+BP,histone H3-K9 methylation,38,2,0.0465896456615982,1
+BP,ubiquitin-dependent SMAD protein catabolic process,6,1,0.0466147807389202,1
+BP,nuclear matrix organization,3,1,0.0467856970391943,1
+BP,nuclear matrix anchoring at nuclear membrane,3,1,0.0467856970391943,1
+BP,positive regulation of chemokine (C-X-C motif) ligand 2 production,9,1,0.0469527197848192,1
+BP,negative regulation of interleukin-4 production,8,1,0.0476632253833455,1
+BP,modulation of programmed cell death in other organism,6,1,0.0479126646532845,1
+BP,modulation of apoptotic process in other organism,6,1,0.0479126646532845,1
+BP,modulation by symbiont of host apoptotic process,6,1,0.0479126646532845,1
+BP,modulation of programmed cell death in other organism involved in symbiotic interaction,6,1,0.0479126646532845,1
+BP,modulation by organism of apoptotic process in other organism involved in symbiotic interaction,6,1,0.0479126646532845,1
+BP,positive regulation of IRE1-mediated unfolded protein response,7,1,0.0480194563271885,1
+BP,positive regulation of epithelial cell migration,176,4,0.0482880337082582,1
+BP,positive regulation of trophoblast cell migration,7,1,0.0485904496538222,1
+BP,muscle tissue development,408,7,0.0486247008413775,1
+BP,positive regulation of cell adhesion molecule production,8,1,0.0487312831614528,1
+BP,head morphogenesis,35,2,0.0489473384727114,1
+BP,negative regulation of cellular response to growth factor stimulus,182,4,0.0489663984970159,1
+BP,regulation of telomere maintenance via telomerase,53,2,0.0491326207759916,1
+BP,regulation of neutrophil apoptotic process,7,1,0.049356007546487,1
