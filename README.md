@@ -62,9 +62,5 @@ TODO
 More info about Epigenetic drift can be found on our [website](https:// ).  
 
 
-Then, just go to File 
-
-Enjoy!
-
 
 
