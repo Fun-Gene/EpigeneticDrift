@@ -1,0 +1,109 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+params:
+  out_prefix: 'E:/EpigenticDrift/Figures/FigS1'  
+---
+
+
+
+# a, PCA plot
+
+```{r}
+library(ggplot2)
+
+pc=readRDS(file='FigS1_a.rds')
+ggplot(data=pc,aes(x=PC1,y=PC2,color=group))+
+  geom_point() +
+  xlab('PC1')+
+  ylab('PC2')+
+  ggtitle('SNP')+
+  theme_bw() +
+  theme(axis.title = element_text(size = 18),
+        axis.text = element_text(size = 18),
+        panel.grid.major=element_line(color="white"),
+        panel.grid.minor=element_line(color="white"),
+        axis.line=element_line(color="black"),
+        legend.title=element_blank(),
+        legend.text = element_text(size=18),
+        plot.title = element_text(hjust = 0.5,size=24))
+```
+
+
+# b, Age distribution between cohorts
+
+```{r}
+ggplot()+
+    geom_histogram(data = nspt ,aes(x=Age,y = ..count../sum(..count..)),bins = 15,alpha=1,fill='black',color='black')+
+    geom_histogram(data = cas ,aes(x=Age,y = ..count../sum(..count..)),bins = 15,alpha=0.6,fill='#7E6148FF',color='black')+
+    geom_histogram(data = meta1 ,aes(x=Age,y = ..count../sum(..count..)),bins = 15,alpha=0.6,fill='#f56766',color='black')+
+    geom_histogram(data = meta2 ,aes(x=Age,y = ..count../sum(..count..)),bins = 15,alpha=0.6,fill='#7eaedc',color='black')+
+    xlab('Age')+
+    ylab('Frequency')+
+    theme_bw()+
+    theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=22))
+```
+
+# c, Methylation consistency between NSPT and CAS
+
+```{r}
+
+plot=ggplot(data,aes(x=nspt_mean, y=cas_mean)) +
+  geom_point() +
+  scale_colour_gradient(low = "gray90", high = "black") +
+  labs(x="NSPT_Mean", y="CAS_Mean")+
+  ggthemes::theme_few() +
+  theme(axis.text.x = element_text(face="bold", size=15,color = "black"),
+        axis.text.y = element_text(size=15, face="bold", color = "black"),
+        axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+        axis.title.y =element_text(face="bold", size=15, color = "black", vjust = 0.1)) +
+  theme(plot.title = element_text(hjust=0.5, face="bold")) +
+  theme(legend.text = element_text(color = "black", size = 15))
+p2 <- ggMarginal(plot, type="density")
+
+plot=ggplot(data,aes(x=nspt_var, y=cas_var)) +
+  geom_point() +
+  scale_colour_gradient(low = "gray90", high = "black") +
+  labs(x="NSPT_Var", y="CAS_Var")+
+  ggthemes::theme_few() +
+  theme(axis.text.x = element_text(face="bold", size=15,color = "black"),
+        axis.text.y = element_text(size=15, face="bold", color = "black"),
+        axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+        axis.title.y =element_text(face="bold", size=15, color = "black", vjust = 0.1)) +
+  theme(plot.title = element_text(hjust=0.5, face="bold")) +
+  theme(legend.text = element_text(color = "black", size = 15))
+p2 <- ggMarginal(plot, type="density")
+```
+
+# d, Methylation consistency between NSPT and CF
+
+```{r}
+plot=ggplot(data,aes(x=nspt_mean, y=cf1_mean) +
+  geom_point() +
+  scale_colour_gradient(low = "gray90", high = "black") +
+  labs(x="NSPT_Mean", y="CF_stage1_Mean")+
+  ggthemes::theme_few() +
+  theme(axis.text.x = element_text(face="bold", size=15,color = "black"),
+        axis.text.y = element_text(size=15, face="bold", color = "black"),
+        axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+        axis.title.y =element_text(face="bold", size=15, color = "black", vjust = 0.1)) +
+  theme(plot.title = element_text(hjust=0.5, face="bold")) +
+  theme(legend.text = element_text(color = "black", size = 15))
+p2 <- ggMarginal(plot, type="density")
+
+plot=ggplot(data,aes(x=nspt_mean, y=cf2_mean)) +
+  geom_point() +
+  scale_colour_gradient(low = "gray90", high = "black") +
+  labs(x="NSPT_Mean", y="CF_stage2_Mean")+
+  ggthemes::theme_few() +
+  theme(axis.text.x = element_text(face="bold", size=15,color = "black"),
+        axis.text.y = element_text(size=15, face="bold", color = "black"),
+        axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+        axis.title.y =element_text(face="bold", size=15, color = "black", vjust = 0.1)) +
+  theme(plot.title = element_text(hjust=0.5, face="bold")) +
+  theme(legend.text = element_text(color = "black", size = 15))
+p2 <- ggMarginal(plot, type="density")
+```
