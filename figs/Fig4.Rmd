@@ -1,0 +1,185 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+params:
+  out_prefix: 'E:/EpigenticDrift/Figures/Fig4'  
+---
+
+
+
+# a, The cumulative curves are plotted as the drift-CpG sites increase
+
+```{r}
+library(ggplot2)
+library(dplyr)
+d <- readRDS("Fig4a.rds")
+p_cumu <- ggplot(usedplot, aes(x = x, y = mean, color=sample)) +
+                geom_line() +
+                labs(x="Number of CpGs", y="Cor ")+
+                geom_ribbon(aes(ymin = mean - sd, ymax = mean + sd , fill=sample), alpha = 0.3, color = NA)+
+                scale_fill_manual(values = c("skyblue", "coral"), aesthetics = c("color", "fill"))+
+                ggthemes::theme_few() +
+                theme(axis.text.x = element_text(face="bold", size=15,color = "black"),
+                      axis.text.y = element_text(size=15, face="bold", color = "black"),
+                      axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+                      axis.title.y =element_text(face="bold", size=15, color = "black", vjust = 0.1)) +
+                theme(plot.title = element_text(hjust=0.5, face="bold")) +
+                theme(legend.text = element_text(color = "black", size = 15))  
+p_cumu
+date=format(Sys.time(), format="%B-%d-%y")
+dir.create("Fig4")
+ggsave(filename = paste0("Fig4/",date,"_cumulative_eds_cor",".pdf"),plot = p_cumu,width=6,height = 6)
+```
+
+# b,c,d, mapping EDS dynamics
+
+```{r}
+#### 4b 1 The changes in the mean and variance of  drift-CpGs between two observations of the same individual
+data=readRDS('Fig4b_1.rds')
+ggplot(data=data,aes(x=x,y=score))+
+  geom_boxplot() +
+  xlab('')+
+  ylab('Mean of delta CpG')+
+  ggtitle('')+
+  geom_hline(aes(yintercept=0), linetype="dashed")+
+  theme_bw() +
+  theme(axis.title = element_text(size = 18),
+        axis.text = element_text(size = 18),
+        panel.grid.major=element_line(color="white"),
+        panel.grid.minor=element_line(color="white"),
+        panel.border=element_blank(),
+        axis.line=element_line(color="black"),
+        legend.title=element_blank(),
+        legend.text = element_text(size=18),
+        plot.title = element_text(hjust = 0.5,size=24))
+##### 4b 2
+data=readRDS('Fig4b_2.rds')
+ggplot(data=data,aes(x=x,y=score))+
+  geom_boxplot() +
+  xlab('')+
+  ylab('Delta variance of CpG')+
+  ggtitle('')+
+  geom_hline(aes(yintercept=0), linetype="dashed")+
+  theme_bw() +
+  theme(axis.title = element_text(size = 18),
+        axis.text = element_text(size = 18),
+        panel.grid.major=element_line(color="white"),
+        panel.grid.minor=element_line(color="white"),
+        panel.border=element_blank(),
+        axis.line=element_line(color="black"),
+        legend.title=element_blank(),
+        legend.text = element_text(size=18),
+        plot.title = element_text(hjust = 0.5,size=24))
+####  4c, Histograms of the bootstrap sampling distributions of the NSPT delta mean and delta variance
+p1=ggplot()+
+  geom_histogram(data = delta_mean ,aes(x=delta_mean,y = ..count../sum(..count..)),bins = 15,alpha=0.6,fill='black',color='black')+
+  xlab('Delta mean')+
+  ylab('Frequency')+
+  geom_vline(xintercept = 5.9e-3, colour="#990000")+
+  geom_vline(xintercept = 0.00532837942631393, colour="black", linetype="dashed")+
+  geom_vline(xintercept = 0.033023764805627, colour="black", linetype="dashed")+
+  theme_bw()+
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=22))
+p2=ggplot()+
+  geom_histogram(data = delta_var ,aes(x=delta_var,y = ..count../sum(..count..)),bins = 15,alpha=0.6,fill='black',color='black')+
+  xlab('Delta variance')+
+  ylab('Frequency')+
+  geom_vline(xintercept = 1.3e-4, colour="#990000")+
+  geom_vline(xintercept = -0.00179147966939154, colour="black", linetype="dashed")+
+  geom_vline(xintercept = 0.00406748614661749, colour="black", linetype="dashed")+
+  theme_bw()+
+  theme(axis.text = element_text(size=18),
+        axis.title = element_text(size=22))
+
+p1+p2
+
+#### 4d,  Boxplot and scatter plot illustrate the changes in individual EDS with respect to age
+data=readRDS('Fig4d.rds')
+ggplot(data=data,aes(x=label,y=EDS))+
+  geom_boxplot() +
+  xlab('')+
+  ylab('EDS')+
+  ggtitle('')+
+  theme_bw() +
+  theme(axis.title = element_text(size = 18),
+        axis.text = element_text(size = 18),
+        panel.grid.major=element_line(color="white"),
+        panel.grid.minor=element_line(color="white"),
+        panel.border=element_blank(),
+        axis.line=element_line(color="black"),
+        legend.title=element_blank(),
+        legend.text = element_text(size=18),
+        plot.title = element_text(hjust = 0.5,size=24))        
+```
+
+# e, The Venn diagram illustrates the overlap between CpG sites constituting EDS and CpG sites constituting published aging-related indicators
+
+```{r}
+library(ggVennDiagram)
+library(RColorBrewer)
+a <- readRDS("Fig4e.rds")
+p <- ggVennDiagram(a, label = "count", edge_size = 2) + scale_fill_distiller(palette = "Pastel1")
+date=format(Sys.time(), format="%y-%b-%d")
+dir.create("fig4")
+ggsave(filename = paste0('Fig4/',date,'_scoreVS_eds230_ggVennDiagram.pdf'),plot = p, width=8,height = 8)
+```
+
+# f,g The heatmap shows the consistency between EDS and the association with published age-related indicators
+
+```{r}
+library(corrplot)
+usedplot1 <- readRDS("Fig4f.rds")
+usedplot2 <- readRDS("Fig4g.rds")
+pdf("Fig4/merge_scoreVS_heatmap.pdf", width=8, height=8)
+corrplot(as.matrix(usedplot1$nspt_cor), is.corr = FALSE, type = 'lower', method = 'color', addCoef.col = 'black',     number.cex=1,
+                 cl.lim=c(0,1), col=colorRampPalette(c("white","red"))(200),
+                 tl.col = "black",
+                 tl.cex = 1,
+                 title = "NSPT")
+#cor_CAS
+corrplot(as.matrix(usedplot2$cas_cor), is.corr = FALSE,  add=T, type = 'upper', method = 'color', addCoef.col = 'black', number.cex=1,
+             cl.lim=c(0,1), col=colorRampPalette(c("white","red"))(200),
+             tl.col = "black",
+             tl.cex = 0.8,
+             title = "CAS")
+dev.off()
+```
+
+# h The EDS of exceptionally long-lived individual and different age groups were compared using boxplot
+
+```{r}
+library(dplyr)
+library(ggplot2)
+usedplot_group <- readRDS("Fig4h.rds")
+HMcolors <- scales::hue_pal()(5)
+names(HMcolors) <- c("<20","20-40", "40-60", "60-90", "103")
+p_boxscatte <- ggplot(data=usedplot_group,aes(x=group,y=eds, fill = group)) +
+                    geom_violin(alpha=0.4, position = position_dodge(width = .75),size=1,color="black") +
+                    geom_boxplot(notch = TRUE,  outlier.size = -1, color="black",lwd=0.5, alpha = 0.5)+
+                    geom_point( shape = 21,size=1, position = position_jitterdodge(),alpha=0.5)+
+                    scale_fill_manual(values = HMcolors)  +
+                    ggthemes::theme_few() +
+                    labs(x="Age") +
+                    theme(axis.text.x = element_text(vjust = 1, face="bold", size=15,color = "black"),
+                              axis.text.y = element_text(size=15, face="bold", color = "black"),
+                              axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+                              axis.title.y =element_text(face="bold", size=15, color = "black"),
+                              axis.ticks.length.x=unit(0.3, "cm"),
+                              axis.ticks.length.y=unit(0.3, "cm"),
+                              axis.ticks.x=element_line(color="black",size=1,lineend = 8),
+                              axis.ticks.y=element_line(color="black",size=1,lineend = 8)) +
+                    theme(plot.title = element_text(hjust=0.5, face="bold")) +
+                    theme(# Hide panel borders and remove grid lines
+                              #panel.border = element_blank(),
+                              panel.border = element_rect(fill=NA,color="black", size=2, linetype="solid"),
+                              panel.grid.major = element_blank(),
+                              panel.grid.minor = element_blank(),
+                              axis.line = element_line(colour = "black"))
+
+dir.create("Fig4")
+date=format(Sys.time(), format="%B-%d-%y")
+ggsave(filename = paste0('Fig4/', date, 'p_box_EDS_centunarian.pdf'),plot = p_boxscatter, width=8,height = 8)
+```

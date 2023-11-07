@@ -1,0 +1,155 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+params:
+  out_prefix: 'E:/EpigenticDrift/Figures/Fig2'  
+---
+
+
+
+# a, Replication on significant drift-CpGs in independent CAS cohort.
+
+```{r}
+library(ggplot2)
+library(hrbrthemes)
+library(dplyr)
+library(ggrepel)
+library(ggthemes)
+d <- readRDS("cas_nspt.rds")
+p <- d %>%
+      ggplot(aes(x=T.NSPT, y=T.CAS,color = t_absolute)) +
+              geom_point() +
+              labs(x = "t value in Discovery data", y = "t value in validation data", color="| t value |",title = "")+
+              scale_colour_gradient(low = "gray90", high = "red") +
+              geom_label_repel( data=d %>% filter(cpg %in%cpg_label), aes(label=SYMBOL), size=4,color = "black",max.overlaps=20) +
+              geom_vline(xintercept = c(-5.337806, 5.337806),color = "#990000", linetype="dashed")+
+              geom_hline(yintercept=c(-1.96223,1.96223),color = "#990000", linetype="dashed")+
+              theme_few()+
+              theme(axis.text.x = element_text(vjust = 0.5, hjust=0.5,face="bold", size=15,color = "black"),
+                    axis.text.y = element_text(size=15, face="bold", color = "black"),
+                    axis.title.x =element_text(face="bold", size=15, color = "black",hjust=0.5),
+                    axis.title.y =element_text(face="bold", size=15, color = "black",hjust=0.5),
+                    plot.title = element_text(hjust=0.5, face="bold"),
+                    panel.grid.major=element_blank(),
+                    panel.grid.minor=element_blank(),
+                    panel.border=element_rect(color="black", fill = NA, size=1))
+
+p
+dir.create("Fig2")
+date=format(Sys.time(), format="%B-%d-%y")
+ggsave(filename = paste0("Fig2/",date,"_p_scatter_CAS_nspt_t.pdf"),  plot = p,width = 8,height = 8)
+```
+
+
+# b, Replication on significant drift-CpGs in independent Changfeng cohort.
+
+```{r}
+library(ggplot2)
+library(hrbrthemes)
+library(dplyr)
+library(ggrepel)
+library(ggthemes)
+d <- readRDS("CAS_ChangFeng.rds")
+p <- d %>%
+  	ggplot(aes(x=T.CAS, y=T.Changfeng, color = t_absolute)) +
+  	geom_point() +
+	  labs(x = "t value in CAS data", y = "t value in ChangFeng data", color="| t value |",title = "")+
+    scale_colour_gradient(low = "gray90", high = "red") +
+    geom_label_repel( data=d %>% filter(cpg %in%cpg_label), aes(label=SYMBOL), size=4,color = "black",max.overlaps=20) +
+    geom_vline(xintercept = c(-5.337806, 5.337806),color = "#990000", linetype="dashed")+
+    geom_hline(yintercept=c(-1.96223,1.96223),color = "#990000", linetype="dashed")+
+    theme_few()+
+    theme(axis.text.x = element_text(vjust = 0.5, hjust=0.5,face="bold", size=15,color = "black"),
+          axis.text.y = element_text(size=15, face="bold", color = "black"),
+          axis.title.x =element_text(face="bold", size=15, color = "black",hjust=0.5),
+          axis.title.y =element_text(face="bold", size=15, color = "black",hjust=0.5),
+          plot.title = element_text(hjust=0.5, face="bold"),
+          panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(),
+          panel.border=element_rect(color="black", fill = NA, size=1))
+p
+dir.create("Fig2")
+date=format(Sys.time(), format="%B-%d-%y")
+ggsave(filename = paste0("Fig2/",date,"_p_scatter_CAS_ChangFeng_t.pdf"),  plot = p,width = 8,height = 8)
+```
+
+# e, Replication on significant verified drift-CpGs in independent Hannum et al. data.
+
+```{r}
+library(ggplot2)
+library(hrbrthemes)
+library(dplyr)
+library(ggrepel)
+library(ggthemes)
+d <- readRDS("CAS_GSE40279.rds")
+p <- d %>%
+  	ggplot(aes(x=T.CAScov0, y=T.GSE40279,color = t_absolute)) +
+  	geom_point() +
+	  labs(x = "t value in CAS data", y = "t value in GSE40279 data", color="| t value |",title = "")+
+    scale_colour_gradient(low = "gray90", high = "red") +
+    geom_label_repel( data=d %>% filter(cpg %in%cpg_label), aes(label=SYMBOL), size=4,color = "black",max.overlaps=20) +
+    geom_vline(xintercept = c(-5.337806, 5.337806),color = "#990000", linetype="dashed")+
+    geom_hline(yintercept=c(-1.96223,1.96223),color = "#990000", linetype="dashed")+
+    theme_few()+
+    theme(axis.text.x = element_text(vjust = 0.5, hjust=0.5,face="bold", size=15,color = "black"),
+          axis.text.y = element_text(size=15, face="bold", color = "black"),
+          axis.title.x =element_text(face="bold", size=15, color = "black",hjust=0.5),
+          axis.title.y =element_text(face="bold", size=15, color = "black",hjust=0.5),
+          plot.title = element_text(hjust=0.5, face="bold"),
+          panel.grid.major=element_blank(),
+          panel.grid.minor=element_blank(),
+          panel.border=element_rect(color="black", fill = NA, size=1))
+p
+dir.create("Fig2")
+date=format(Sys.time(), format="%B-%d-%y")
+ggsave(filename = paste0("Fig2/",date,"_p_scatter_CAS_GSE40279_t.pdf"),  plot = p,width = 8,height = 8)
+
+```
+
+# g, Replication on significant drift-CpGs in independent twins data.
+
+```{r}
+library(ggplot2)
+library(hrbrthemes)
+library(dplyr)
+library(ggrepel)
+library(ggthemes)
+library(EnhancedVolcano)
+d <- readRDS("twin_GSE61496.rds")
+p <- EnhancedVolcano(d,
+    lab = rownames(d),
+    selectLab = d$gene[which(rownames(d) %in% d$gene[c(i_pos,i_neg)])],
+    labFace = 'bold',
+    x = 'beta',
+    y = 'p',
+    xlim = c(-500, 1000),
+    title = 'GSE40279',
+    subtitle = "Differential effect",
+    pCutoff = 0.05,
+    pointSize = 3.0,
+    labSize = 5.0,
+    col=c('black', 'black', 'black', 'red3'),
+    colAlpha = 1) +
+    xlab("BETA") +
+    theme_bw() +
+    theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1,face="bold", size=15,color = "black"),
+              axis.text.y = element_text(size=15, face="bold", color = "black"),
+              axis.title.x =element_text(face="bold", size=15, color = "black", vjust = 0.1),
+              axis.title.y =element_text(face="bold", size=15, color = "black"),
+              axis.ticks.length.x=unit(0.3, "cm"),
+              axis.ticks.length.y=unit(0.3, "cm"),
+              axis.ticks.x=element_line(color="black",size=1,lineend = 8),
+              axis.ticks.y=element_line(color="black",size=1,lineend = 8)) +
+    theme(plot.title = element_text(hjust=0.5, face="bold")) +
+    theme(panel.border = element_rect(fill=NA,color="black", size=2, linetype="solid"),
+              panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank(),
+              axis.line = element_line(colour = "black"))
+
+p
+dir.create("Fig2")
+date=format(Sys.time(), format="%B-%d-%y")
+ggsave(filename = paste0("Fig2/",date,"_p_volcano_twin_GSE61496.pdf"),  plot = p,width = 8,height = 8)
+```

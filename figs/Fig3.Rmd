@@ -1,0 +1,47 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+params:
+  out_prefix: 'E:/EpigenticDrift/Figures/Fig3'  
+---
+
+
+
+# a, Gene ontology (GO) term enrichment for genes annotated to positive drift-CpGs
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(ggthemes)
+d <- readRDS("usedplot.rds")
+p_bubble <- ggplot(usedplot, aes(x = -log10(P.DE), y = idx, colour = -log10(P.DE))) +
+             geom_point(aes(size = N), alpha = 0.7) +
+             scale_size(limits = c(min(usedplot$N), max(usedplot$N))) +
+             scale_y_discrete(labels = setLabs) +
+             scale_colour_gradient(low = "gray90", high = "red") +
+             labs(x="-log_10(P)", y = "", size = "No_genes", colour = "-log_10(P)") +
+             theme_bw() +
+             theme(axis.title.x=element_text(face="bold", size=15, color = "black", vjust = -0.5),  
+                  axis.title.y=element_text(face="bold", size=15, color = "black"),  
+                  axis.text.x=element_text(size=15, face="bold", color = "black", vjust=0.1),  
+                  axis.text.y=element_text(size=15, face="bold", color = "black"),  
+                  axis.ticks.length.x=unit(0.3, "cm"),
+                  axis.ticks.length.y=unit(0.3, "cm"),
+                  axis.ticks.x=element_line(color="black",size=1,lineend = 8),
+                  axis.ticks.y=element_line(color="black",size=1,lineend = 8),
+                  plot.title = element_text(hjust=0.5, face="bold"),
+                  panel.background = element_blank(),
+                  panel.border = element_rect(fill=NA,color="black", size=2, linetype="solid"),
+                  panel.grid.major = element_blank(),
+                  panel.grid.minor = element_blank(),
+                  axis.line = element_line(colour = "black"),
+                  legend.box = "horizontal",
+                  legend.margin = margin(0, 0, 0, 0, unit = "lines"))
+p_bubble
+date=format(Sys.time(), format="%B-%d-%y")
+dir.create("Fig3")
+filename="pos_GO"
+ggsave(filename = paste0("Fig3/",date,filename,"_bubbleplot_enrich",".pdf"),plot = p_bubble,width=12,height = 6)
+```

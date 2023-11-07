@@ -1,0 +1,221 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+params:
+  out_prefix: 'E:/EpigenticDrift/Figures/Fig1'  
+---
+
+
+
+# a, Manhattan plot
+
+```{r}
+library(data.table)
+library(dplyr)
+
+drift=readRDS('figture1a_1.rds')
+clock=readRDS('figture1a_2.rds')
+
+hotspotPlot <- function(){
+pdf(file = "Manhattan_plot.pdf", width = 28, height = 16)
+par(mfrow=c(2,1),mai=c(0.8, 2.3, 0.8, 0.8))
+
+with(filter(drift, CHR %in% seq.int(1, 22, 2)),
+     plot(POS, P,
+          pch = 16,
+          ann = F,
+          col = col,
+          ylim = c(0, 3),
+          cex.axis = 2.5, las = 2,
+          xlim = c(1, 2881033286),
+          xaxt = "n", xaxs ="i", yaxs = "i",
+          tcl = -0.3))
+with(filter(draft, CHR %in% seq.int(2, 22, 2)),
+     points(POS, P,
+            col = col,  #turquoise
+            pch = 16))
+
+xbreak <- c(1, GRCh37_2$cumBP)
+for(i in 1:22){
+  xbreak <- c(xbreak, mean(c(xbreak[i], xbreak[i+1])))
+}
+mapply(axis, side = 1, at = xbreak[24:45], labels = 1:22, col.ticks = "white",cex.axis = 2.5)
+axis(1, at = 1, labels = "Chr",cex.axis=2.5)
+title(main = bquote('Drift Age'), ylab = "log10(-log10(P)+1)",cex.main = 3,cex.lab=3)
+abline(h = 0.9011244, lty = 2, lwd = 1.5, col = "red")  
+
+with(filter(clock, CHR %in% seq.int(1, 22, 1)),
+     plot(POS, P,
+          pch = 16,
+          ann = FALSE,
+          col = col,
+          ylim = c(3,0),
+          cex.axis = 2.5, las = 2,
+          xlim = c(1, 2881033286),
+          xaxt = "n", xaxs ="i", yaxs = "i",
+          tcl = -0.3))
+with(filter(clock, CHR %in% seq.int(2, 22, 2)),
+     points(POS, P,
+            pch = 16,
+            col = col)) #turquoise
+xbreak <- c(1, GRCh37_2$cumBP)
+for(i in 1:22){
+  xbreak <- c(xbreak, mean(c(xbreak[i], xbreak[i+1])))
+}
+axis(1, at=15,labels = "Age",cex.axis=4)
+title(ylab = "log10(-log10(P)+1)",cex.main = 3,cex.lab=3)
+abline(h = 0.9011244, lty = 2, lwd = 1.5, col = "red")
+dev.off()
+}
+hotspotPlot()
+```
+
+
+# e,g CpG annotation
+
+```{r}
+library(ggplot2)
+library(ggsci)
+library(RColorBrewer)
+
+data1=data.frame('TSS1500'=1.371116,'TSS200'=1.314328,'5\'UTR'=1.0826,'1stExon'=1.921362,'Body'=0.5363802,'ExonBnd'=0.3401549,'3\'UTR'=0.5497959,'Promoter'=1.524086,'Enhancer'=0.813895)
+data2=data.frame('TSS1500'=0.4825137,'TSS200'=0.6654244,'5\'UTR'=1.04684,'1stExon'=0.4362039,'Body'=1.86843,'ExonBnd'=0.5855287,'3\'UTR'=1.131738,'Promoter'=0.6939699,'Enhancer'=4.377613)
+
+data3=data.frame('TSS1500'=1.461716,'TSS200'=2.313764,'5\'UTR'=1.58407,'1stExon'=3.474443,'Body'=0.4568622,'ExonBnd'=0.1268462,'3\'UTR'=0.4952053,'Promoter'=2.62645,'Enhancer'=0.9030269)
+data4=data.frame('TSS1500'=0.9466546,'TSS200'=0.3950748,'5\'UTR'=0.6422718,'1stExon'=0.3123766,'Body'=0.7485765,'ExonBnd'=0.6876187,'3\'UTR'=0.6768362,'Promoter'=0.6579918,'Enhancer'=0.8436501)
+data5=data.frame('TSS1500'=1.443951,'TSS200'=0.5728549,'5\'UTR'=0.6962526,'1stExon'=0.6766728,'Body'=0.6115185,'ExonBnd'=0.4740517,'3\'UTR'=0.6079343,'Promoter'=0.9810709,'Enhancer'=0.7452517)
+
+data6=data.frame('TSS1500'=0.9997659,'TSS200'=1.096362,'5\'UTR'=1.180442,'1stExon'=1.254013,'Body'=1.081691,'ExonBnd'=0.7656298,'3\'UTR'=0.9657364,'Promoter'=1.177239,'Enhancer'=1.557079)
+data7=data.frame('TSS1500'=0.8575985,'TSS200'=0.6366843,'5\'UTR'=0.8616158,'1stExon'=0.6783598,'Body'=0.8682129,'ExonBnd'=0.8306296,'3\'UTR'=0.7123214,'Promoter'=0.7514759,'Enhancer'=1.804653)
+data8=data.frame('TSS1500'=0.8987301,'TSS200'=1.044712,'5\'UTR'=1.003859,'1stExon'=0.7860184,'Body'=1.414418,'ExonBnd'=1.7138,'3\'UTR'=1.570889,'Promoter'=0.9067179,'Enhancer'=0.6207238)
+
+data9=data.frame('TSS1500'=1.479941,'TSS200'=1.445505,'5\'UTR'=1.110535,'1stExon'=2.034754,'Body'=0.5466677,'ExonBnd'=0.3647898,'3\'UTR'=0.5743713,'Promoter'=1.626888,'Enhancer'=0.8510359)
+data10=data.frame('TSS1500'=0.7036441,'TSS200'=0.608773,'5\'UTR'=1.25252,'1stExon'=0.6959993,'Body'=1.466799,'ExonBnd'=0.8526454,'3\'UTR'=0.5372804,'Promoter'=0.8194658,'Enhancer'=5.306178)
+
+data11=data.frame('TSS1500'=1.49704,'TSS200'=2.507562,'5\'UTR'=1.60793,'1stExon'=3.781447,'Body'=0.4595926,'ExonBnd'=0.1529139,'3\'UTR'=0.4743916,'Promoter'=2.748934,'Enhancer'=0.8557123)
+data12=data.frame('TSS1500'=1.253952,'TSS200'=0.916634,'5\'UTR'=0.9010743,'1stExon'=0.9238632,'Body'=0.7202417,'ExonBnd'=0.6944069,'3\'UTR'=0.6985337,'Promoter'=1.024374,'Enhancer'=0.9691521)
+data13=data.frame('TSS1500'=1.472746,'TSS200'=0.6775873,'5\'UTR'=0.7291637,'1stExon'=0.8446225,'Body'=0.6217218,'ExonBnd'=0.660377,'3\'UTR'=0.660377,'Promoter'=1.057227,'Enhancer'=0.8550079)
+
+
+data1=as.data.frame(t(data1))
+data2=as.data.frame(t(data2))
+data3=as.data.frame(t(data3))
+data4=as.data.frame(t(data4))
+data5=as.data.frame(t(data5))
+data6=as.data.frame(t(data6))
+data7=as.data.frame(t(data7))
+data8=as.data.frame(t(data8))
+data9=as.data.frame(t(data9))
+data10=as.data.frame(t(data10))
+data11=as.data.frame(t(data11))
+data12=as.data.frame(t(data12))
+data13=as.data.frame(t(data13))
+data1$Region=rownames(data1)
+data2$Region=rownames(data2)
+data3$Region=rownames(data3)
+data4$Region=rownames(data4)
+data5$Region=rownames(data5)
+data6$Region=rownames(data6)
+data7$Region=rownames(data7)
+data8$Region=rownames(data8)
+data9$Region=rownames(data9)
+data10$Region=rownames(data10)
+data11$Region=rownames(data11)
+data12$Region=rownames(data12)
+data13$Region=rownames(data13)
+
+data1$label='Score_positive_30690'
+data2$label='Score_negative_30690'
+data3$label='Clock_positive(drift)_30690'
+data4$label='Clock_negative(drift)_30690'
+data5$label='Non_clock(drift)_30690'
+data6$label='Clock_positive(non-drift)'
+data7$label='Clock_negative(non-drift)'
+data8$label='Non_clock(non-drift)'
+data9$label='Drift_positive'
+data10$label='Drift_negative'
+data11$label='Clock_positive(drift)'
+data12$label='Clock_negative(drift)'
+data13$label='Non_clock(drift)'
+data1$Region[3]='5UTR'
+data2$Region[3]='5UTR'
+data3$Region[3]='5UTR'
+data4$Region[3]='5UTR'
+data5$Region[3]='5UTR'
+data6$Region[3]='5UTR'
+data7$Region[3]='5UTR'
+data8$Region[3]='5UTR'
+data9$Region[3]='5UTR'
+data10$Region[3]='5UTR'
+data11$Region[3]='5UTR'
+data12$Region[3]='5UTR'
+data13$Region[3]='5UTR'
+data1$Region[4]='1stExon'
+data2$Region[4]='1stExon'
+data3$Region[4]='1stExon'
+data4$Region[4]='1stExon'
+data5$Region[4]='1stExon'
+data6$Region[4]='1stExon'
+data7$Region[4]='1stExon'
+data8$Region[4]='1stExon'
+data9$Region[4]='1stExon'
+data10$Region[4]='1stExon'
+data11$Region[4]='1stExon'
+data12$Region[4]='1stExon'
+data13$Region[4]='1stExon'
+data1$Region[7]='3UTR'
+data2$Region[7]='3UTR'
+data3$Region[7]='3UTR'
+data4$Region[7]='3UTR'
+data5$Region[7]='3UTR'
+data6$Region[7]='3UTR'
+data7$Region[7]='3UTR'
+data8$Region[7]='3UTR'
+data9$Region[7]='3UTR'
+data10$Region[7]='3UTR'
+data11$Region[7]='3UTR'
+data12$Region[7]='3UTR'
+data13$Region[7]='3UTR'
+
+data1$Region=factor(data1$Region,levels=data1$Region)
+data2$Region=factor(data2$Region,levels=data2$Region)
+data3$Region=factor(data3$Region,levels=data3$Region)
+data4$Region=factor(data4$Region,levels=data4$Region)
+data5$Region=factor(data5$Region,levels=data5$Region)
+data6$Region=factor(data6$Region,levels=data6$Region)
+data7$Region=factor(data7$Region,levels=data7$Region)
+data8$Region=factor(data8$Region,levels=data8$Region)
+data9$Region=factor(data9$Region,levels=data9$Region)
+data10$Region=factor(data10$Region,levels=data10$Region)
+data11$Region=factor(data11$Region,levels=data11$Region)
+data12$Region=factor(data12$Region,levels=data12$Region)
+data13$Region=factor(data13$Region,levels=data13$Region)
+
+data=rbind(data11,data12,data13,data6,data7,data8)
+colnames(data)[1]='OR'
+data$OR=data$OR-1
+data$label=factor(data$label,levels=c('Clock_positive(drift)','Clock_positive(non-drift)','Clock_negative(drift)','Clock_negative(non-drift)','Non_clock(drift)','Non_clock(non-drift)'))
+
+
+data=rbind(data9,data10)
+colnames(data)[1]='OR'
+data$OR=data$OR-1
+data$label=factor(data$label,levels=c('Drift_positive','Drift_negative'))
+
+ggplot(data = data, mapping = aes(x = Region, y = OR,fill=label)) +
+  geom_bar(stat = 'identity',position = "dodge") +
+  xlab("") +
+  ylab("Odds Ratio") +
+  scale_fill_manual(values=c('#f56766','#EE00004D','#7eaedc','#C6DBEF','#008B45FF','#008B454D'))+
+  scale_y_continuous(breaks=c(-1,0,1,2,3),labels=c(0,1,2,3,4))+
+  theme_bw() +
+  theme(axis.title = element_text(size = 14),
+        axis.text = element_text(size = 13),
+        panel.grid.major=element_line(color="white"),
+        panel.grid.minor=element_line(color="white"),
+        axis.line=element_line(color="black"),
+        axis.text.x = element_text(angle = 60, hjust = 0.5, vjust = 0.5),
+        legend.title = element_blank())
+```

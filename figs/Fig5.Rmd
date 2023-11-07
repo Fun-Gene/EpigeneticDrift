@@ -1,0 +1,35 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+params:
+  out_prefix: 'E:/EpigenticDrift/Figures/Fig5'  
+---
+
+
+
+# Forest plots demonstrate significant associations between EDS and lipids metabolism
+
+```{r}
+library(ggplot2)
+library(dplyr)
+res <- readRDS('Fig5.rds')
+ggplot(res, aes(x = beta, y = reorder(label,beta))) +
+            geom_errorbarh(aes(xmin = beta-1.96*se, xmax = beta+1.96*se), color = "#d95f02", height = 0, size=1.2) +
+            geom_point(color = "#d95f02", size=2.5) +
+            facet_grid(Main~.,scales = "free",space = "free_y") +
+            theme_bw() +
+            theme(axis.text = element_text(size = 15,color="black"),
+                  axis.title = element_text(size = 15),
+                  strip.text = element_text(size = 15,face="bold"),
+                  axis.text.y=element_text(size=15,color="black"),
+                  panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                  panel.background = element_blank(),
+                  panel.border = element_rect(colour = "black")) +
+            geom_vline(xintercept = 0,col = "grey",lty = 2) +
+            ylab("") +
+            scale_y_discrete(labels = function(x) unlist(lapply(str_split(x,"__"), function(y) stringr::str_wrap(y[1], width = 80))))+
+            xlab(stringr::str_wrap('Effect size (95% CI) per unit* increase of EDS', width = 60))
+
+```
