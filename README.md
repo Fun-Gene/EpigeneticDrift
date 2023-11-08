@@ -3,7 +3,7 @@ DNA methylation; Epigenetic Drift; Aging
 
 ![Build](https://github.com/Fun-Gene/EpigeneticDrift)
 
-# A robust epigenetic drift score associated with aging dimensions
+# Accurately quantifying epigenetic drift to uncover aging dynamics
 
 ### Xiu Fan, Qili Qian, Yuan Cheng
 
